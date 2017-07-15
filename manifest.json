@@ -1,0 +1,19 @@
+{
+  "name": "query_take",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "take google search query category",
+  "icons": {
+    "128": "niwashi.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://www.google.co.jp/*"],
+    "js": ["jquery.js","script.js"]
+  }],
+  "permissions": [
+    "https://www.google.co.jp/*",
+    "storage"
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "options_page": "options.html"
+}
