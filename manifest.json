@@ -6,6 +6,11 @@
   "icons": {
     "128": "niwashi.png"
   },
+  "browser_action" : {
+    "default_icon" : "niwashi.png",
+    "default_title" : "Popup",
+    "default_popup" : "popup.html"
+  },
   "content_scripts": [{
     "matches": ["https://www.google.co.jp/*"],
     "js": ["jquery.js","script.js"]
