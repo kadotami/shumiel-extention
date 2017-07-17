@@ -10,8 +10,8 @@ $(function() {
     }
 
     // inputタグ生成
-    var inp_area = '<span>お題：<input class="inp" type="text" value=""><button class="delete">×</button><br></span>';
-    var prev_area = 'お題：<span class="prev"></span><br>';
+    var inp_area = '<span class="appended">お題：<input class="inp" type="text" value=""><button class="delete">×</button><br></span>';
+    var prev_area = '<span class="appended">お題：<span class="prev"></span><br></span>';
     function add() {
         $('#add').click(function() {
             $('#inps').append(inp_area);
@@ -24,9 +24,9 @@ $(function() {
     // inputタグ抹殺
     function death() {
         $('.delete').click(function() {
-            var target_dom = $('#inps span').index(this);
-            alert(target_dom);
-            //$('#inps span').delete(target_dom);
+            var target_eq = $('#inps span .delete').index(this);
+            $('#inps .appended').eq(target_eq).hide();
+            $('#prevs .appended').eq(target_eq).hide();
         });
     }
 
