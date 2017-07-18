@@ -14,14 +14,18 @@ $(function(){
   }
 
   var postInterest = function(token, interests) {
-    console.log(interests)
+    console.log(JSON.stringify(interests))
     $.ajax({
       type: 'POST',
-      url: 'test',
-      data: {
-        "token": token,
-        "data": category_data
+      url: 'http://localhost:3000/private/interests',
+      data: JSON.stringify({
+        "interest": interests
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
       },
+      traditional: true,
       dataType: 'json'
     }).done(function(data){
       console.log(data);
@@ -32,17 +36,18 @@ $(function(){
   var query = getVal["q"].split("+").join(" ");
 
   $.ajax({
-    type: 'POST',
-    url: 'http://127.0.0.1:5000/word2vec/category',
+    type: 'GET',
+    url: 'http://133.130.127.250:5000/word2vec/category',
     data: {
-      "query": "睡眠"
+      "query": query
     },
     dataType: 'json'
   }).done(function(category_data) {
       chrome.storage.sync.get(
-        {"token": ""},
+        {"private_token": ""},
         function(items) {
-          token = items.token
+          console.log(items)
+          token = items.private_token
           postInterest(token, category_data)
         }
       );

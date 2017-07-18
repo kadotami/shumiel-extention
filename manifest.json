@@ -17,6 +17,7 @@
   }],
   "permissions": [
     "https://www.google.co.jp/*",
+    "http://133.130.127.250:5000/*",
     "storage"
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
