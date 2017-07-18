@@ -2,9 +2,25 @@
 <html lang="ja">
 <head>
     <script src="../jquery.js"></script>
+    <script src="./script/ss.js"></script>
     <script src="./script/script.js"></script>
     <meta charset="UTF-8">
     <title>名刺エディター</title>
+
+    <!-- あとで消すよ -->
+    <style>
+        #prevs {
+            width: 345px;
+            height: 209px;
+            background-color: #acf;
+        }
+
+        #canvas {
+            width: 345px;
+            height: 209px;
+            background-color: #fac;
+        }
+    </style>
 </head>
 <body>
 <div id="inps">
@@ -15,6 +31,7 @@
 <div id="prevs">
     名前：<span class="prev"></span><br>
 </div>
-
+<canvas id="canvas" style="border:2px solid black;" width="200" height="200"></canvas>
+<button id="prev_canvas">プレビュー表示</button>
 </body>
 </html>
