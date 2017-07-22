@@ -14,14 +14,17 @@ $(function(){
   }
 
   var postInterest = function(token, interests) {
-    console.log(interests)
     $.ajax({
       type: 'POST',
-      url: 'test',
-      data: {
-        "token": token,
-        "data": category_data
+      url: 'https://shumiel-api.modern-min.net/private/interests',
+      data: JSON.stringify({
+        "interest": interests
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
       },
+      traditional: true,
       dataType: 'json'
     }).done(function(data){
       console.log(data);
@@ -33,16 +36,17 @@ $(function(){
 
   $.ajax({
     type: 'POST',
-    url: 'http://127.0.0.1:5000/word2vec/category',
-    data: {
-      "query": "睡眠"
-    },
-    dataType: 'json'
+    url: 'https://shumiel-category.modern-min.net/category',
+    data: JSON.stringify({
+      "query": query
+    }),
+    processData: false,
+    contentType: 'application/json' ,
   }).done(function(category_data) {
       chrome.storage.sync.get(
-        {"token": ""},
+        {"private_token": ""},
         function(items) {
-          token = items.token
+          token = items.private_token
           postInterest(token, category_data)
         }
       );
