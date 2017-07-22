@@ -26,6 +26,7 @@ $(function() {
             DOMURL.revokeObjectURL(url);
         };
         img.src = url;
+        console.log(url);
     });
 
     // 入力値をプレビュに反映
