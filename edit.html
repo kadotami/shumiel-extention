@@ -6,13 +6,6 @@
     <script src="./script/script.js"></script>
     <meta charset="UTF-8">
     <title>名刺エディター</title>
-    <style> /* あとで消す */
-        #canvas {
-            width: 345px;
-            height: 209px;
-            background-color: #fac;
-        }
-    </style>
 </head>
 <body>
 テキスト：<input id="inp" type="text" name="name" value="地獄見澤"><br>
@@ -22,8 +15,9 @@
 色：<input id="color-list" type="color" value="#000000" list="colors"><br><br>
 <button id="add_text">描画</button><br>
 <hr>
-<canvas id="canvas" style="border:2px solid black;" width="200" height="200"></canvas>
-<button id="prev_canvas">プレビュー表示</button>
-<img id="image_prev" src="" alt="">
+<canvas id="canvas" style="border: 2px solid black;" width="200" height="200"></canvas>
+<button id="prev">プレビュー</button><br>
+<img id="image_prev" style="border: 2px solid black;" src="" alt=""><br>
+<a id="image_download" href="" download style="display: none;">ダウンロード</a>
 </body>
 </html>
