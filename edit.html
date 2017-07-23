@@ -2,19 +2,11 @@
 <html lang="ja">
 <head>
     <script src="../jquery.js"></script>
-    <script src="./script/ss.js"></script>
+    <script src="./script/jcanvas.js"></script>
     <script src="./script/script.js"></script>
     <meta charset="UTF-8">
     <title>名刺エディター</title>
-
-    <!-- あとで消すよ -->
-    <style>
-        #prevs {
-            width: 345px;
-            height: 209px;
-            background-color: #acf;
-        }
-
+    <style> /* あとで消す */
         #canvas {
             width: 345px;
             height: 209px;
@@ -23,18 +15,15 @@
     </style>
 </head>
 <body>
-<div id="inps">
-    名前：<input class="inp" type="text" name="name"><br>
-</div>
-<button id="add">追加</button>
+テキスト：<input id="inp" type="text" name="name" value="地獄見澤"><br>
+小：<input type="radio" value="12" name="fontsize"><br>
+中：<input type="radio" value="16" name="fontsize" checked><br>
+大：<input type="radio" value="22" name="fontsize"><br>
+色：<input id="color-list" type="color" value="#000000" list="colors"><br><br>
+<button id="add_text">描画</button><br>
 <hr>
-<div id="prevs">
-    名前：<span class="prev"></span><br>
-</div>
 <canvas id="canvas" style="border:2px solid black;" width="200" height="200"></canvas>
 <button id="prev_canvas">プレビュー表示</button>
 <img id="image_prev" src="" alt="">
-
-
 </body>
 </html>
