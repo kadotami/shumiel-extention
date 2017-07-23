@@ -5,12 +5,12 @@ $(function() {
     $(canvas).attr('width', '345px');
     $(canvas).attr('height', '209px');
 
-    //画像ロード
+    // 画像ロード
     var image_array = new Array();
     var image_name = ['../img/kty1.jpg', '../img/kty2.jpg', '../img/kty3.jpg'];
-    for (var d = 0; d < image_name.length; d++) {
-        image_array[d] = new Image();
-        image_array[d].src = image_name[d];
+    for (var i = 0; i < image_name.length; i++) {
+        image_array[i] = new Image();
+        image_array[i].src = image_name[i];
     }
 
     // テンプレート(画像)を描画
@@ -49,4 +49,4 @@ $(function() {
         $('#image_prev').attr('src', image_src);
         $('#image_download').attr('href', image_src).show();
     });
-});
+}); // $(function()

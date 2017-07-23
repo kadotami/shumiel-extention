@@ -2,12 +2,28 @@
 <html lang="ja">
 <head>
     <script src="../jquery.js"></script>
-    <script src="./script/jcanvas.js"></script>
-    <script src="./script/script.js"></script>
+    <script src="./js/jcanvas.js"></script>
+    <script src="./js/edit.js"></script>
     <meta charset="UTF-8">
     <title>名刺エディター</title>
+    <style>
+        /* 一旦 */
+        #canvas, #image_prev {
+            border: solid 2px #000;
+        }
+        #image_download {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+<select id="background" name="background">
+    <option>---テンプレートを指定---</option>
+    <option value="0">かわいい1</option>
+    <option value="1">かわいい2</option>
+    <option value="2">かわいい3</option>
+</select>
+<hr>
 テキスト：<input id="inp" type="text" name="name" value="地獄見澤"><br>
 文字サイズ(小)：<input type="radio" value="12" name="fontsize"><br>
 文字サイズ(中)：<input type="radio" value="16" name="fontsize" checked><br>
@@ -15,17 +31,9 @@
 色：<input id="color-list" type="color" value="#000000" list="colors"><br><br>
 <button id="add_text">描画</button><br>
 <hr>
-<select id="background" name="background">
-    <option>---テンプレートを指定---</option>
-    <option value="0">かわいい1</option>
-    <option value="1">かわいい2</option>
-    <option value="2">かわいい3</option>
-</select>
-
-<hr>
-<canvas id="canvas" style="border: 2px solid black;" width="200" height="200"></canvas>
+<canvas id="canvas"></canvas>
 <button id="prev">プレビュー</button><br>
-<img id="image_prev" style="border: 2px solid black;" src="" alt=""><br>
-<a id="image_download" href="" download style="display: none;">ダウンロード</a>
+<img id="image_prev" src=""><br>
+<a id="image_download" href="" download>ダウンロード</a>
 </body>
 </html>
