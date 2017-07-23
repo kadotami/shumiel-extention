@@ -20,13 +20,4 @@ $(function() {
             text: text
         });
     });
-
-    // 入力値をプレビュに反映
-    function edit() {
-        $('.inp').keyup(function() {
-            var target_eq = $('#inps .inp').index(this);
-            var text = $('.inp').eq(target_eq).val();
-            $('.prev').eq(target_eq).html(text);
-        });
-    }
 });
