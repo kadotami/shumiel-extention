@@ -5,13 +5,20 @@ $(function() {
     canvas_back = document.getElementById('canvas_back');
     $('#canvas_front, #canvas_back').attr('width', '500px');
     $('#canvas_front, #canvas_back').attr('height', '300px');
+    // 背景色の設定
+    $('#canvas_back').drawRect({
+      fillStyle: '#fff',
+      x: 0, y: 0,
+      width: 2000,
+      height: 2000,
+    });
     // ARモデル
     $("#canvas_back").drawImage({
         draggable: true,
         source: '../img/ar_model.png',
-        x: 230, y: 30,
-        width: 200,
-        height: 200,
+        x: 250, y: 25,
+        width: 250,
+        height: 250,
         fromCenter: false,
     });
 
@@ -53,6 +60,7 @@ $(function() {
                 $(this).removeLayer(layer);
             }
         });
+        var text = $('#inp').val(''); // 後片付け
     });
 
     // 画像を描画する
@@ -79,9 +87,9 @@ $(function() {
                 draggable: true,
                 crossOrigin: 'anonymous',
                 source: 'http://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://shumiel.modern-min.net/?token='+token,
-                x: 30, y: 30,
-                width: 200,
-                height: 200,
+                x: 0, y: 25,
+                width: 250,
+                height: 250,
                 fromCenter: false,
             });
     }); // chrome.storage.sync.get({"public_token": ""}, function(items) {
