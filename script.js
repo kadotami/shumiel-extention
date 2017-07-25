@@ -14,10 +14,9 @@ $(function(){
   }
 
   var postInterest = function(token, interests) {
-    console.log(JSON.stringify(interests))
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/private/interests',
+      url: 'https://shumiel-api.modern-min.net/private/interests',
       data: JSON.stringify({
         "interest": interests
       }),
@@ -36,17 +35,17 @@ $(function(){
   var query = getVal["q"].split("+").join(" ");
 
   $.ajax({
-    type: 'GET',
-    url: 'http://133.130.127.250:5000/word2vec/category',
-    data: {
+    type: 'POST',
+    url: 'https://shumiel-category.modern-min.net/category',
+    data: JSON.stringify({
       "query": query
-    },
-    dataType: 'json'
+    }),
+    processData: false,
+    contentType: 'application/json' ,
   }).done(function(category_data) {
       chrome.storage.sync.get(
         {"private_token": ""},
         function(items) {
-          console.log(items)
           token = items.private_token
           postInterest(token, category_data)
         }

@@ -1,8 +1,8 @@
 {
-  "name": "query_take",
+  "name": "Shumiel",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "take google search query category",
+  "description": "hobby visualise tool",
   "icons": {
     "128": "niwashi.png"
   },
@@ -17,7 +17,6 @@
   }],
   "permissions": [
     "https://www.google.co.jp/*",
-    "http://133.130.127.250:5000/*",
     "storage"
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
