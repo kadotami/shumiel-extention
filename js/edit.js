@@ -22,7 +22,10 @@ $(function() {
             x: 0, y: 0,
             width: 345,
             height: 209,
-            fromCenter: false
+            fromCenter: false,
+            dblclick: function(layer) {
+                $(this).removeLayer(layer);
+            }
         });
     });
 
@@ -39,7 +42,10 @@ $(function() {
             y: 100,
             fontSize: fontsize,
             fontFamily: "sans-serif",
-            text: text
+            text: text,
+            dblclick: function(layer) {
+                $(this).removeLayer(layer);
+            }
         });
     });
 
