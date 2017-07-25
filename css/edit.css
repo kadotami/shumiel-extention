@@ -122,7 +122,7 @@ hr {
   right: 0;
   margin: auto;
   width: 500px;
-  height: 400px;
+  height: 300px;
 }
 
 #canvas_front {
@@ -131,6 +131,19 @@ hr {
   cursor: move;
   margin-left: 80px;
   border: 2px solid #000;
+  background-size: 100%;
+  background-image:url(../img/templete01.png);
+}
+
+#canvas_back {
+  width: 500px;
+  height: 300px;
+  cursor: move;
+  margin-left: 80px;
+  border: 2px solid #000;
+  background-size: 100%;
+  background-image:url(../img/templete01.png);
+  display: none;
 }
 
 #prev {
@@ -231,3 +244,4 @@ hr {
   border-radius: 5px;
   cursor: pointer;
 }
+
