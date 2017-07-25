@@ -1,16 +1,17 @@
-function login(){
+function signup(){
   var email = $("#email").val();
   var password = $("#password").val();
+  var password_confirmation = $("#password_confirmation").val();
 
   post_data = {
     "email": email,
-    "password": password
+    "password": password,
+    "password_confirmation": password_confirmation
   }
-  console.log(post_data)
   $.ajax({
     type: "POST",
-    url: "https://shumiel-api.modern-min.net/auth_token",
-    data: JSON.stringify(post_data),
+    url: "https://shumiel-api.modern-min.net/signup",
+    data: post_data,
     dataType: 'json',
   }).done(function(response, textStatus, jqXHR) {
     data = {
@@ -19,10 +20,10 @@ function login(){
     }
     chrome.storage.sync.set(data, function(){});
   }).fail(function(jqXHR, textStatus, errorThrown){
-    console.log(jqXHR,textStatus,errorThrown)
+    console.log(jqXHR)
   }); 
 }
 
 window.onload = function(){
-  document.getElementById('login_btn').addEventListener("click", login, false);
+  document.getElementById('signup_btn').addEventListener("click", signup, false);
 };

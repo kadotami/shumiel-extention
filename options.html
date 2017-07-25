@@ -1,30 +1,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>オプションページ</title>
+<title>オプション</title>
 <script src="jquery.js"></script>
 <script src="options.js"></script>
-<link rel="stylesheet" href="options.css"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/options.css"/>
 </head>
 <body>
-<div class="title"><img src="niwashi.png"/><h1>query take</h1></div>
-<div class="login">
-    <input id="email" type="text" placeholder="メールアドレス"/>
-    <input id="password" type="password" placeholder="パスワード"/>
-    <button id="login_btn">ログインする</button>
+<div class="wrapper">
+	<div class="title">
+		<img src="./image/Shumiel-logo.png">
+	</div>
+	<div class="discription">
+		<section class="about">
+			<h1>Shumielとは？</h1>
+			<p>気の合う仲間を見つけたい、初対面の人との話題がほしい、自分の趣味を知ってもらいたい...<br>
+			Shumielは、そんな人のための自己紹介カード作成ツールです。</p>
+		</section>
+		<section class="feature">
+			<h1>Shumielの特徴</h1>
+			<p>★ 自分のオリジナルのカードが作れる！<br>
+			★ 検索ワードから推定した自分の趣味をARでカードに表示できる！</p>
+		</section>
+		<div class="step">
+			<div class="step__box">
+				<img src="./image/01.png">
+				<span class="step__text"><span class="number">01.</span>自己紹介カードをつくる</span>
+			</div>
+			<div class="step__box">
+				<img src="./image/02.png">
+				<span class="step__text"><span class="number">02.</span>わたす</span>
+			</div>
+			<div class="step__box">
+				<img src="./image/03.png">
+				<span class="step__text"><span class="number">03.</span>ARアプリをかざすと…？！</span>
+			</div>
+		</div>
+	</div>
+	<div class="button-area">
+		<button id="login_btn">ログインする</button>
+		<button id="signup_btn">新規登録</button>
+	</div>
 </div>
-
-<div class="signup-form">
-    <input id="sign_up_email" type="text" placeholder="メールアドレス"/>
-    <input id="sign_up_password" type="password" placeholder="パスワード"/>
-    <input id="sign_up_confirm" type="password" placeholder="パスワード確認"/>
-    <button id="sign_up_btn">登録する</button>
-</div>
-
-<div class="imageArea">
-    <img src="marker.png" />
-    
-</div>
-
 </body>
 </html>
