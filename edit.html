@@ -3,12 +3,13 @@
 <head>
     <script src="../jquery.js"></script>
     <script src="./js/jcanvas.js"></script>
+    <script src="./js/create_qr.js"></script>
     <script src="./js/edit.js"></script>
     <meta charset="UTF-8">
     <title>名刺エディター</title>
     <style>
         /* 一旦 */
-        #canvas, #image_prev {
+        #canvas_front, #canvas_back, #image_prev {
             border: solid 2px #000;
             cursor: move;
         }
@@ -26,15 +27,19 @@
 </select>
 <hr>
 テキスト：<input id="inp" type="text" name="name" value="地獄見澤"><br>
-文字サイズ：<input type="number" name="fontsize" value="14"><br>
+文字サイズ：<input id="fontsize" type="number" name="fontsize" value="14"><br>
 色：<input id="color-list" type="color" value="#000000" list="colors"><br>
 <button id="add_text">描画</button><br>
 <hr>
-ファイル：<input type="file" name="datafile"><br>
+ファイル：<input id="upload_image" type="file" name="datafile"><br>
+<button id="add_image">反映</button><br>
 <hr>
-<canvas id="canvas""></canvas>
+<canvas id="canvas_front"></canvas>
+<canvas id="canvas_back"></canvas>
 <button id="prev">プレビュー</button><br>
 <img id="image_prev" src=""><br>
 <a id="image_download" href="" download>ダウンロード</a>
+<div id="qr_code"></div>
+<img id="test" src="" alt="">
 </body>
 </html>
