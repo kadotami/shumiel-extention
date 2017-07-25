@@ -5,6 +5,8 @@
     <script src="./js/jcanvas.js"></script>
     <script src="./js/edit.js"></script>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/edit.css"/>
     <title>名刺エディター</title>
     <style>
         /* 一旦 */
@@ -18,23 +20,32 @@
     </style>
 </head>
 <body>
-<select id="background" name="background">
-    <option>---テンプレートを指定---</option>
-    <option value="0">かわいい1</option>
-    <option value="1">かわいい2</option>
-    <option value="2">かわいい3</option>
-</select>
-<hr>
-テキスト：<input id="inp" type="text" name="name" value="地獄見澤"><br>
-文字サイズ：<input type="number" name="fontsize" value="14"><br>
-色：<input id="color-list" type="color" value="#000000" list="colors"><br>
-<button id="add_text">描画</button><br>
-<hr>
-ファイル：<input type="file" name="datafile"><br>
-<hr>
-<canvas id="canvas""></canvas>
-<button id="prev">プレビュー</button><br>
-<img id="image_prev" src=""><br>
-<a id="image_download" href="" download>ダウンロード</a>
+<div class="header">
+    <img src="./image/shumiel-logo.png">
+</div>
+<div class="wrapper-left">
+    <h1>表示テキストの編集</h1>
+    <select id="background" name="background">
+        <option>テーマ(背景)を選択</option>
+        <option value="0">かわいい1</option>
+        <option value="1">かわいい2</option>
+        <option value="2">かわいい3</option>
+    </select>
+    <input type="file" name="datafile" class="file"><br>
+    <hr>
+    <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br>
+    <span class="item">文字サイズ：</span><input id="fontsize" type="number" name="fontsize" value="14"><br>
+    <span class="item">色：</span><input id="color-list" type="color" value="#000000" list="colors"><br>
+    <button id="add_text">　テキストを追加　</button><br>
+    <hr>
+
+</div>
+<div class="wrapper-right">
+    <h1>カードデザインのプレビュー</h1>
+    <canvas id="canvas""></canvas>
+    <button id="prev">　確認する　</button><br>
+    <img id="image_prev" src=""><br>
+    <a id="image_download" href="" download>ダウンロード</a>
+</div>
 </body>
 </html>
