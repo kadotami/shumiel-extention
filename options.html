@@ -4,25 +4,43 @@
 <title>オプション</title>
 <script src="jquery.js"></script>
 <script src="options.js"></script>
-<link rel="stylesheet" href="./css/options.css"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/options.css"/>
 </head>
 <body>
 <div class="wrapper">
 	<div class="title">
 		<img src="./image/Shumiel-logo.png">
 	</div>
-	<section class="about-shumiel">
-		<h1>Shumielとは？</h1>
-		 <p>ここにShumielの説明文が入りますここにShumielの説明文が入ります<br>
-		 ここにShumielの説明文が入りますここにShumielの説明文が入ります<br>
-		 ここにShumielの説明文が入りますここにShumielの説明文が入ります</p>
-	</section>
+	<div class="discription">
+		<section class="about">
+			<h1>Shumielとは？</h1>
+			<p>気の合う仲間を見つけたい、初対面の人との話題がほしい、自分の趣味を知ってもらいたい...<br>
+			Shumielは、そんな人のための自己紹介カード作成ツールです。</p>
+		</section>
+		<section class="feature">
+			<h1>Shumielの特徴</h1>
+			<p>★ 自分のオリジナルのカードが作れる！<br>
+			★ 検索ワードから推定した自分の趣味をARでカードに表示できる！</p>
+		</section>
+		<div class="step">
+			<div class="step__box">
+				<img src="./image/01.png">
+				<span class="step__text"><span class="number">01.</span>自己紹介カードをつくる</span>
+			</div>
+			<div class="step__box">
+				<img src="./image/02.png">
+				<span class="step__text"><span class="number">02.</span>わたす</span>
+			</div>
+			<div class="step__box">
+				<img src="./image/03.png">
+				<span class="step__text"><span class="number">03.</span>ARアプリをかざすと…？！</span>
+			</div>
+		</div>
+	</div>
 	<div class="button-area">
 		<button id="login_btn">ログインする</button>
 		<button id="signup_btn">新規登録</button>
-	</div>
-	<div class="imageArea">
-	   <img src="marker.png" />
 	</div>
 </div>
 </body>

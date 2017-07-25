@@ -8,20 +8,9 @@ $(function() {
     // QRコードを準備
     chrome.storage.sync.get({"public_token": ""}, function(items) {
 
-        // 名刺の裏にQRコードを描画
-        var token = items.public_token;
-        var qr_src = 'https://api.qrserver.com/v1/create-qr-code/?data=https://kadotami.github.io/ar/test.html?token='+token+'&size=130x130&format=svg&color=1d417a&bgcolor=f7f6eb';
-
-        // canvas合成
-        var createImage = function(context){
-            var image = new Image
-            image.src = context.canvas.toDataURL()
-            return image
-        }
-
         // 画像ロード
         var image_array = new Array();
-        var image_name = ['../img/kty1.jpg', '../img/kty2.jpg', '../img/kty3.jpg', qr_src];
+        var image_name = ['../img/kty1.jpg', '../img/kty2.jpg', '../img/kty3.jpg'];
         for (var i = 0; i < image_name.length; i++) {
             image_array[i] = new Image();
             image_array[i].src = image_name[i];
@@ -47,7 +36,7 @@ $(function() {
         // 文字を描画
         $('#add_text').click(function() {
             var text = $('#inp').val();
-            var fontsize = $('[name=fontsize]:checked').val();
+            var fontsize = $('#fontsize').val();
             var selectcolor = $('#color-list').val();
             $("#canvas_front").drawText({
                 draggable: true,
@@ -62,6 +51,34 @@ $(function() {
                     $(this).removeLayer(layer);
                 }
             });
+        });
+
+        // 画像を描画する
+        $('#add_image').click(function() {
+            var name = $('#upload_image')[0].files[0].name;
+            $('#canvas_front').drawImage({
+                draggable: true,
+                source: name,
+                x: 0, y: 0,
+                width: 345,
+                height: 209,
+                fromCenter: false,
+                dblclick: function(layer) {
+                    $(this).removeLayer(layer);
+                }
+            });
+        });
+
+        // 名刺の裏をレイアウトする
+        var token = items.public_token;
+        $("#canvas_front").drawImage({
+            draggable: true,
+            crossOrigin: 'anonymous',
+            source: 'https://api.qrserver.com/v1/create-qr-code/?data=https://kadotami.github.io/ar/test.html?token='+token+'&size=130x130&format=svg&color=1d417a&bgcolor=f7f6eb',
+            x: 30, y: 30,
+            width: 100,
+            height: 100,
+            fromCenter: false,
         });
 
         // canvas画像化

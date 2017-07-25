@@ -9,7 +9,7 @@ function login(){
   console.log(post_data)
   $.ajax({
     type: "POST",
-    url: "http://shumiel-api.modern-min.net/auth_token",
+    url: "https://shumiel-api.modern-min.net/auth_token",
     data: JSON.stringify(post_data),
     dataType: 'json',
   }).done(function(response, textStatus, jqXHR) {
