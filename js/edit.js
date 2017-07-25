@@ -17,7 +17,7 @@ $(function() {
         }
 
         // テンプレート(画像)を描画
-        $('#background').change(function(){
+        $('#background').change(function() {
             var img = $('[name=background] option:selected').val();
             console.log(image_array[img]);
             $('#canvas_front').drawImage({
@@ -71,21 +71,23 @@ $(function() {
 
         // 名刺の裏をレイアウトする
         var token = items.public_token;
-        $("#canvas_front").drawImage({
+        $("#canvas_back").drawImage({
             draggable: true,
             crossOrigin: 'anonymous',
-            source: 'https://api.qrserver.com/v1/create-qr-code/?data=https://kadotami.github.io/ar/test.html?token='+token+'&size=130x130&format=svg&color=1d417a&bgcolor=f7f6eb',
+            source: 'http://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://shumiel.modern-min.net/?token='+token,
             x: 30, y: 30,
-            width: 100,
-            height: 100,
+            width: 200,
+            height: 200,
             fromCenter: false,
         });
 
         // canvas画像化
         $('#prev').click(function(){
-            var image_src = canvas_front.toDataURL("image/png");
-            $('#image_prev').attr('src', image_src);
-            $('#image_download').attr('href', image_src).show();
+            var image_src_front = canvas_front.toDataURL("image/png");
+            var image_src_back = canvas_back.toDataURL("image/png");
+            $('#image_prev_front').attr('src', image_src_front);
+            $('#image_prev_back').attr('src', image_src_back);
+            $('#image_download').attr('href', image_src_front).show();
         });
     });
 }); // $(function()
