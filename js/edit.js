@@ -73,9 +73,7 @@ $(function() {
 
     // QRコードの描画とプレビュー画面のクリックイベント
     chrome.storage.sync.get({"public_token": ""}, function(items) {
-        // canvas画像化
-        $('#prev').click(function() {
-            // ARカメラページQR
+            // QRコード
             var token = items.public_token;
             $("#canvas_back").drawImage({
                 draggable: true,
@@ -86,19 +84,21 @@ $(function() {
                 height: 200,
                 fromCenter: false,
             });
-
-            // カードをダウンロードするまでを行う
-            var image_src_front = canvas_front.toDataURL("image/png");
-            var image_src_back = canvas_back.toDataURL("image/png");
-            $('#image_prev_front').attr('src', image_src_front);
-            $('#image_prev_back').attr('src', image_src_back);
-
-            // モーダル処理
-            $('#image_download_front').attr('href', image_src_front);
-            $('#image_download_back').attr('href', image_src_back);
-            $('#modal-download').fadeIn(1000);
-        }); // $('#prev')
     }); // chrome.storage.sync.get({"public_token": ""}, function(items) {
+
+    // canvas画像化
+    $('#prev').click(function() {
+        // カードをダウンロードするまでを行う
+        var image_src_front = canvas_front.toDataURL("image/png");
+        var image_src_back = canvas_back.toDataURL("image/png");
+        $('#image_prev_front').attr('src', image_src_front);
+        $('#image_prev_back').attr('src', image_src_back);
+
+        // モーダル処理
+        $('#image_download_front').attr('href', image_src_front);
+        $('#image_download_back').attr('href', image_src_back);
+        $('#modal-download').fadeIn(1000);
+    }); // $('#prev')
 
     // クリックイベント系
     $('.help-contents').click(function() {

@@ -11,10 +11,6 @@
     <title>名刺エディター</title>
     <style>
         /* 一旦 */
-/*        #canvas_front, #canvas_back, #image_prev {
-            border: solid 2px #000;
-            cursor: move;
-        }*/
         #image_download_front, #image_download_back {
             display: none;
         }
@@ -57,7 +53,7 @@
     </select>
     <!-- <input type="file" name="datafile" class="file"><br> -->
     <hr>
-    <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br>
+    <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br> <!-- or <br><textarea name="text" id="inp" cols="30" rows="10" placeholder="カードに書き込みたいことばを入力してください。"></textarea> --><br>
     <span class="item">文字サイズ：</span><input id="fontsize" type="number" name="fontsize" value="23"><br>
     <span class="item">色：</span><input id="color-list" type="color" value="#000000" list="colors"><br>
     <button id="add_text">　テキストを追加　</button><br>
@@ -66,10 +62,10 @@
 <div class="wrapper-right">
     <h1>カードデザインのプレビュー</h1>
     <canvas id="canvas_front"></canvas>
-    <canvas id="canvas_back"></canvas>
+    <canvas id="canvas_back" style="display:none;"></canvas>
     <button id="prev">　確認する　</button><br>
-    <img id="image_prev_front" src=""><br>
-    <img id="image_prev_back" src=""><br>
+    <!-- <img id="image_prev_front" src=""><br>
+    <img id="image_prev_back" src=""><br> -->
     <a id="image_download_front" href="" download="card_front">name_card_front</a>
     <a id="image_download_back" href="" download="card_back">name_card_back</a>
 </div>
