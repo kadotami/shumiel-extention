@@ -62,7 +62,7 @@ $(function() {
         // テンプレート(画像)を描画
         $('#background').change(function() {
             num = $('[name=background] option:selected').val();
-            $('#canvas_front').css('background-image', 'url(../img/templete0'+num+'.png)');
+            //$('#canvas_front').css('background-image', 'url(../img/templete0'+num+'.png)');
             $("#canvas_front").drawImage({
                 source: '../img/templete0'+num+'.png',
                 x: 0, y: 0,
