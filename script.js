@@ -41,14 +41,17 @@ $(function(){
       "query": query
     }),
     processData: false,
-    contentType: 'application/json' ,
+    contentType: 'application/json'
   }).done(function(category_data) {
       chrome.storage.sync.get(
         {"private_token": ""},
         function(items) {
-          token = items.private_token
-          postInterest(token, category_data)
+          token = items.private_token;
+          if(token != "") {
+            postInterest(token, category_data);
+          }
         }
       );
   });
 });
+
