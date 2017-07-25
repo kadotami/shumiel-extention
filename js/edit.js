@@ -27,21 +27,6 @@ $(function() {
         image_array[i].src = image_name[i];
     }
 
-    // テンプレート(画像)を描画
-    /*$("#canvas_front").drawImage({ draggable: true, source: '../img/templete01.png', x: 0, y: 0, width: 500, height: 300, fromCenter: false, name: 'background',});
-    $('#background').change(function() {
-        num = $('[name=background] option:selected').val();
-        $("#canvas_front").setLayer('background', {
-            draggable: true,
-            name: 'background',
-            source: '../img/templete0'+num+'.png',
-            x: 0, y: 0,
-            width: 500,
-            height: 300,
-            fromCenter: false,
-        }).drawImage();
-    });*/
-
     // 文字を描画
     $('#add_text').click(function() {
         var text = $('#inp').val();
@@ -65,12 +50,6 @@ $(function() {
 
     // 画像を描画する
     $('#add_image').click(function() {
-        //multipart/form-dat
-        //var name = $('#upload_image')[0].files[0].path;
-        //var name = $('#upload_image').val();
-        //var namea = $('#upload_image')[0].files[0].name;
-
-        //alert(name);
         //サイズを指定
         $('#canvas_front').drawImage({
             draggable: true,
@@ -87,21 +66,30 @@ $(function() {
 
     // QRコードの描画とプレビュー画面のクリックイベント
     chrome.storage.sync.get({"public_token": ""}, function(items) {
-            // QRコード
-            var token = items.public_token;
-            $("#canvas_back").drawImage({
-                draggable: true,
-                crossOrigin: 'anonymous',
-                source: 'http://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://shumiel.modern-min.net/?token='+token,
-                x: 0, y: 25,
-                width: 250,
-                height: 250,
-                fromCenter: false,
-            });
+        // QRコード
+        var token = items.public_token;
+        $("#canvas_back").drawImage({
+            draggable: true,
+            crossOrigin: 'anonymous',
+            source: 'http://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://shumiel.modern-min.net/?token='+token,
+            x: 0, y: 25,
+            width: 250,
+            height: 250,
+            fromCenter: false,
+        });
     }); // chrome.storage.sync.get({"public_token": ""}, function(items) {
 
     // canvas画像化
     $('#prev').click(function() {
+        $("#canvas_front").setLayer('background', {
+            draggable: true,
+            name: 'background',
+            source: '../img/templete03.png',
+            x: 0, y: 0,
+            width: 500,
+            height: 300,
+            fromCenter: false,
+        });
         // カードをダウンロードするまでを行う
         var image_src_front = canvas_front.toDataURL("image/png");
         var image_src_back = canvas_back.toDataURL("image/png");
@@ -137,19 +125,20 @@ $(function() {
         $('#modal-download').fadeOut(600);
     });
 
-     $('#select img').click(function() {
+    $('#select img').click(function() {
         $('#select img').removeClass('selected');
         $(this).addClass('selected');
         $("#canvas_front").setLayer('background', {
             draggable: true,
             name: 'background',
-            source: $(this).attr('src'),
+            source: "."+$(this).attr('src'),
             x: 0, y: 0,
             width: 500,
             height: 300,
             fromCenter: false,
-        }).drawImage();
-     });
+        });
+        $('#canvas_front').click();
+    });
 
     // ホバーイベント
     $('#select img').mouseenter(function() {
