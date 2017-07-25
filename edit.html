@@ -42,26 +42,56 @@
     <img src="./image/shumiel-logo.png">
 </div>
 <div class="wrapper-left">
-    <h1>表示テキストの編集</h1>
-    <select id="background" name="background">
-        <option value="1">テンプレート1</option>
-        <option value="2">テンプレート2</option>
-        <option value="3">テンプレート3</option>
-        <option value="4">テンプレート4</option>
-        <option value="5">テンプレート5</option>
-    </select>
-    <!-- <input type="file" name="datafile" class="file"><br> -->
+
+    <style>
+        #temp_h1 {
+            margin-bottom: 10px;
+        }
+
+        #select {
+            width: 100%;
+            padding: 35px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap:wrap;
+        }
+
+        #select img {
+            cursor: pointer;
+            margin: 0 10px 10px 0;
+        }
+
+        .selected {
+            box-shadow: 0 0 0 3px #29ABE2;
+        }
+
+    </style>
+    <h1 id="temp_h1">テンプレートを選択</h1>
+    <div id="select">
+        <img src="./img/templete01.png" alt="" width="100" height="60" class="selected">
+        <img src="./img/templete02.png" alt="" width="100" height="60" class="">
+        <img src="./img/templete03.png" alt="" width="100" height="60" class="">
+        <img src="./img/templete04.png" alt="" width="100" height="60" class="">
+        <img src="./img/templete05.png" alt="" width="100" height="60" class="">
+        <span id="select_image">+</span>
+    </div>
+    <input id="upload_image" type="file" name="datafile" class="file">
     <hr>
+    <h1>表示テキストの編集</h1>
     <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br> <!-- or <br><textarea name="text" id="inp" cols="30" rows="10" placeholder="カードに書き込みたいことばを入力してください。"></textarea> --><br>
     <span class="item">文字サイズ：</span><input id="fontsize" type="number" name="fontsize" value="23"><br>
     <span class="item">色：</span><input id="color-list" type="color" value="#000000" list="colors"><br>
     <button id="add_text">　テキストを追加　</button><br>
-    <hr>
+    <!--<button id="add_image"> アップロード </button><br> -->
 </div>
 <div class="wrapper-right">
     <h1>カードデザインのプレビュー</h1>
-    <canvas id="canvas_front"></canvas>
-    <canvas id="canvas_back" style="display:none;"></canvas>
+    <div id="front_prev">
+        <div id="temp_prev"></div>
+        <canvas id="canvas_front"></canvas>
+        <canvas id="canvas_back" style="display:none;"></canvas>
+    </div>
     <button id="prev">　確認する　</button><br>
     <!-- <img id="image_prev_front" src=""><br>
     <img id="image_prev_back" src=""><br> -->

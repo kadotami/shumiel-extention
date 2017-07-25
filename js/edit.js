@@ -65,7 +65,13 @@ $(function() {
 
     // 画像を描画する
     $('#add_image').click(function() {
-        var name = $('#upload_image')[0].files[0].name;
+        //multipart/form-dat
+        //var name = $('#upload_image')[0].files[0].path;
+        //var name = $('#upload_image').val();
+        //var namea = $('#upload_image')[0].files[0].name;
+
+        //alert(name);
+        //サイズを指定
         $('#canvas_front').drawImage({
             draggable: true,
             source: name,
@@ -121,9 +127,37 @@ $(function() {
         $('#modal-tutorial').fadeOut(600);
     });
 
+    $('#select_image').click(function() {
+        $('#upload_image')[0].click();
+    });
+
     $('.download').click(function() {
         $('#image_download_front')[0].click();
         $('#image_download_back')[0].click();
         $('#modal-download').fadeOut(600);
+    });
+
+     $('#select img').click(function() {
+        $('#select img').removeClass('selected');
+        $(this).addClass('selected');
+        $("#canvas_front").setLayer('background', {
+            draggable: true,
+            name: 'background',
+            source: $(this).attr('src'),
+            x: 0, y: 0,
+            width: 500,
+            height: 300,
+            fromCenter: false,
+        }).drawImage();
+     });
+
+    // ホバーイベント
+    $('#select img').mouseenter(function() {
+        $('#temp_prev').show();
+        var src = $(this).attr('src');
+        console.log(src);
+        $('#temp_prev').css('background-image', 'url('+src+')');
+    }).mouseleave(function() {
+        $('#temp_prev').hide();
     });
 }); // $(function()

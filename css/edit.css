@@ -38,7 +38,7 @@ h1 {
   color: #29abe2;
   text-align: center;
   font-size: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 hr {
@@ -57,6 +57,7 @@ hr {
   font-size: 16px;
   margin-left: 5px;
   color: #888;
+  display: none;
 }
 
 .item{
@@ -112,6 +113,7 @@ hr {
   width: 100%;
   height: 100%;
   display: none;
+  z-index: 99;
 }
 
 #modal-contents-download {
@@ -126,29 +128,8 @@ hr {
   background-color: #fff;
 }
 
-#canvas_front {
-  width: 500px;
-  height: 300px;
-  cursor: move;
-  margin-left: 80px;
-  border: 2px solid #000;
-  background-size: 100%;
-  background-image: none;
-}
-
-#canvas_back {
-  width: 500px;
-  height: 300px;
-  cursor: move;
-  margin-left: 80px;
-  border: 2px solid #000;
-  background-size: 100%;
-  background-image: none;
- /* display: none;*/
-}
-
 #prev {
-  margin: 20px 78px;
+  margin: 320px 78px;
   font-size: 18px;
   float: right;
   color: #fff;
@@ -246,3 +227,56 @@ hr {
   cursor: pointer;
 }
 
+/* temp_prev */
+
+#front_prev {
+}
+
+#temp_prev {
+  position: absolute;
+  z-index: 3;
+  border: 2px solid #000;
+  margin-left: 80px;
+  width: 500px;
+  height: 300px;
+  background-image: url();
+  background-size: 100%;
+  display: none;
+}
+
+#canvas_front {
+  position: absolute;
+  z-index: 2;
+  width: 500px;
+  height: 300px;
+  cursor: move;
+  margin-left: 80px;
+  border: 2px solid #000;
+  background-size: 100%;
+  background-image: none;
+}
+
+#canvas_back {
+  width: 500px;
+  height: 300px;
+  cursor: move;
+  margin-left: 80px;
+  border: 2px solid #000;
+  background-size: 100%;
+  background-image: none;
+ /* display: none;*/
+}
+
+#select_image {
+  width:100px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 23px;
+  box-shadow: 0 0 0 1px #bfbfbf;
+  color: #bfbfbf;
+  cursor: pointer;
+  display: block;
+}
+
+}
