@@ -78,14 +78,14 @@ p {
 }
 #login_btn {
   font-size: 28px;
-  padding: 10px 22px;
+  padding: 10px 36px;
   color: #29ABE2;
   font-weight: bold;
   border: 3px solid #29ABE2;
   border-radius: 5px;
   background-color: #fff;
   width: 240px;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #login_btn:hover {
@@ -96,7 +96,7 @@ p {
 
 #signup_btn {
   font-size: 28px;
-  padding: 10px 22px;
+  padding: 10px 36px;
   color: #29ABE2;
   font-weight: bold;
   border: 3px solid #29ABE2;
