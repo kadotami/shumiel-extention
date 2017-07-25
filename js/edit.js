@@ -27,9 +27,9 @@ $(function() {
                 width: 500,
                 height: 300,
                 fromCenter: false,
-                dblclick: function(layer) {
+                /*dblclick: function(layer) {
                     $(this).removeLayer(layer);
-                }
+                }*/
             });
         });
 
@@ -59,12 +59,13 @@ $(function() {
         // 画像を描画する
         $('#add_image').click(function() {
             var name = $('#upload_image')[0].files[0].name;
+            alert(name);
             $('#canvas_front').drawImage({
                 draggable: true,
                 source: name,
                 x: 0, y: 0,
-                width: 345,
-                height: 209,
+                width: 500,
+                height: 300,
                 fromCenter: false,
                 dblclick: function(layer) {
                     $(this).removeLayer(layer);
@@ -85,12 +86,33 @@ $(function() {
         });
 
         // canvas画像化
-        $('#prev').click(function(){
+        $('#prev').click(function() {
             var image_src_front = canvas_front.toDataURL("image/png");
             var image_src_back = canvas_back.toDataURL("image/png");
+            console.log(image_src_front);
+            console.log(image_src_back);
             $('#image_prev_front').attr('src', image_src_front);
-            $('#image_prev_back').attr('src', image_src_back);
-            $('#image_download').attr('href', image_src_front).show();
+
+            // モーダル処理
+            $('#image_download_front').attr('href', image_src_front);
+            $('#image_download_back').attr('href', image_src_back);
+            $('#modal-download').fadeIn(600);
+            $('.cancel').click(function() {
+                $('#modal-download').fadeOut(600);
+            });
+
+            // ダウンロードイベント
+            $('.download').click(function() {
+                $('#image_download_front')[0].click();
+                $('#image_download_back')[0].click();
+            });
         });
+    });
+    $('.help-contents').click(function() {
+        $('#modal-tutorial').fadeIn(600);
+    });
+
+    $('.next').click(function() {
+        $('#modal-tutorial').fadeOut(600);
     });
 }); // $(function()
