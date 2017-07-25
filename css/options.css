@@ -83,7 +83,7 @@ p {
   font-weight: bold;
   border: 3px solid #29ABE2;
   border-radius: 5px;
-  background: none;
+  background-color: #fff;
   width: 240px;
   margin-left: 5px;
 }
@@ -101,8 +101,7 @@ p {
   font-weight: bold;
   border: 3px solid #29ABE2;
   border-radius: 5px;
-  background: none;
-  width: 100%;
+  background-color: #fff;
   width: 240px;
   margin-left: 5px;
 }

@@ -2,8 +2,8 @@ $(function() {
     // canvasを定義
     canvas_front = document.getElementById('canvas_front');
     canvas_back = document.getElementById('canvas_back');
-    $('#canvas_front, #canvas_back').attr('width', '345px');
-    $('#canvas_front, #canvas_back').attr('height', '209px');
+    $('#canvas_front, #canvas_back').attr('width', '500px');
+    $('#canvas_front, #canvas_back').attr('height', '300px');
 
     // QRコードを準備
     chrome.storage.sync.get({"public_token": ""}, function(items) {
@@ -24,8 +24,8 @@ $(function() {
                 draggable: true,
                 source: image_array[img],
                 x: 0, y: 0,
-                width: 345,
-                height: 209,
+                width: 500,
+                height: 300,
                 fromCenter: false,
                 dblclick: function(layer) {
                     $(this).removeLayer(layer);
@@ -38,6 +38,9 @@ $(function() {
             var text = $('#inp').val();
             var fontsize = $('#fontsize').val();
             var selectcolor = $('#color-list').val();
+            console.log(text);
+            console.log(fontsize);
+            console.log(selectcolor);
             $("#canvas_front").drawText({
                 draggable: true,
                 fillStyle: selectcolor,
