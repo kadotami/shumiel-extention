@@ -11,17 +11,34 @@
     <title>名刺エディター</title>
     <style>
         /* 一旦 */
-        #canvas_front, #canvas_back, #image_prev {
+/*        #canvas_front, #canvas_back, #image_prev {
             border: solid 2px #000;
             cursor: move;
-        }
-        #image_download {
+        }*/
+        #image_download_front, #image_download_back {
             display: none;
         }
     </style>
 </head>
 <body>
-
+<div id="modal-download">
+    <div id="modal-contents-download">
+        <img id="image_prev_front" src="./img/kty3.jpg" width="500" height="300">
+        <div id="prev_btns">
+            <button class="prev_btn download">download</button>
+            <button class="prev_btn cancel">cancel</button>
+        </div>
+    </div>
+</div>
+<div id="modal-tutorial">
+    <div id="modal-contents-tutorial">
+        <button class="prev_btn next">続ける</button>
+        <img src="./img/how-to-edit.png" alt="" width="900" height="700">
+    </div>
+</div>
+<div id="help">
+        <button class="help-contents">help</button>
+</div>
 <div class="header">
     <img src="./image/shumiel-logo.png">
 </div>
@@ -33,22 +50,22 @@
         <option value="1">かわいい2</option>
         <option value="2">かわいい3</option>
     </select>
-    <input type="file" name="datafile" class="file"><br>
+    <!-- <input type="file" name="datafile" class="file"><br> -->
     <hr>
     <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br>
-    <span class="item">文字サイズ：</span><input id="fontsize" type="number" name="fontsize" value="14"><br>
+    <span class="item">文字サイズ：</span><input id="fontsize" type="number" name="fontsize" value="23"><br>
     <span class="item">色：</span><input id="color-list" type="color" value="#000000" list="colors"><br>
     <button id="add_text">　テキストを追加　</button><br>
     <hr>
-
 </div>
 <div class="wrapper-right">
     <h1>カードデザインのプレビュー</h1>
-    <canvas id="canvas""></canvas>
+    <canvas id="canvas_front"></canvas>
+    <canvas id="canvas_back"></canvas>
     <button id="prev">　確認する　</button><br>
-    <img id="image_prev" src=""><br>
-    <a id="image_download" href="" download>ダウンロード</a>
+    <img id="image_prev_front" src=""><br>
+    <a id="image_download_front" href="" download="card_front">name_card_front</a>
+    <a id="image_download_back" href="" download="card_back">name_card_back</a>
 </div>
-
 </body>
 </html>
