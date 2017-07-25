@@ -84,7 +84,7 @@ $(function() {
         $("#canvas_front").setLayer('background', {
             draggable: true,
             name: 'background',
-            source: '../img/templete03.png',
+            source: '.'+$(this).attr('src'),
             x: 0, y: 0,
             width: 500,
             height: 300,
