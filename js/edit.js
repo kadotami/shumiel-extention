@@ -1,17 +1,14 @@
 $(function() {
     // canvasを定義
-    num = 0;
+    num = 1;
     canvas_front = document.getElementById('canvas_front');
     canvas_back = document.getElementById('canvas_back');
     $('#canvas_front, #canvas_back').attr('width', '500px');
     $('#canvas_front, #canvas_back').attr('height', '300px');
+
     // 背景色の設定
-    $('#canvas_back').drawRect({
-      fillStyle: '#fff',
-      x: 0, y: 0,
-      width: 2000,
-      height: 2000,
-    });
+    $('#canvas_back').drawRect({ fillStyle: '#fff', x: 0, y: 0, width: 2000, height: 2000 });
+
     // ARモデル
     $("#canvas_back").drawImage({
         draggable: true,
@@ -29,17 +26,20 @@ $(function() {
         image_array[i] = new Image();
         image_array[i].src = image_name[i];
     }
+
     // テンプレート(画像)を描画
+    $("#canvas_front").drawImage({ draggable: true, source: '../img/templete01.png', x: 0, y: 0, width: 500, height: 300, fromCenter: false, name: 'background',});
     $('#background').change(function() {
         num = $('[name=background] option:selected').val();
-        $("#canvas_front").drawImage({
+        $("#canvas_front").setLayer('background', {
             draggable: true,
+            name: 'background',
             source: '../img/templete0'+num+'.png',
             x: 0, y: 0,
             width: 500,
             height: 300,
             fromCenter: false,
-        });
+        }).drawImage();
     });
 
     // 文字を描画
