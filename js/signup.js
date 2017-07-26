@@ -19,6 +19,7 @@ function signup(){
       public_token: response.public_token
     }
     chrome.storage.sync.set(data, function(){});
+    location.href = "./edit.html";
   }).fail(function(jqXHR, textStatus, errorThrown){
     console.log(jqXHR)
   }); 
