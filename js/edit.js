@@ -19,14 +19,6 @@ $(function() {
         fromCenter: false,
     });
 
-    // 画像ロード
-/*    var image_array = new Array();
-    var image_name = ['../img/templete01.png', '../img/templete02.png', '../img/templete03.png', '../img/templete04.png', '../img/templete05.png'];
-    for (var i = 0; i < image_name.length; i++) {
-        image_array[i] = new Image();
-        image_array[i].src = image_name[i];
-    }*/
-
     // 文字を描画
     $('#add_text').click(function() {
         var text = $('#inp').val();
