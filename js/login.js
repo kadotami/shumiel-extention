@@ -6,7 +6,7 @@ function login(){
     "email": email,
     "password": password
   }
-  console.log(post_data)
+  console.log(post_data);
   $.ajax({
     type: "POST",
     url: "https://shumiel-api.modern-min.net/auth_token",
@@ -19,8 +19,9 @@ function login(){
     }
     chrome.storage.sync.set(data, function(){});
     location.href = "./edit.html";
+    console.log("login");
   }).fail(function(jqXHR, textStatus, errorThrown){
-    console.log(jqXHR,textStatus,errorThrown)
+    // console.log(jqXHR,textStatus,errorThrown)
   }); 
 }
 
