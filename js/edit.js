@@ -9,6 +9,7 @@ $(function() {
     // 背景色の設定
     $('#canvas_back').drawRect({ fillStyle: '#fff', x: 0, y: 0, width: 2000, height: 2000 });
     $("#canvas_front").drawImage({ draggable: true, source: '../img/templete01.png', x: 0, y: 0, width: 500, height: 300, fromCenter: false, name: 'background',});
+
     // ARモデル
     $("#canvas_back").drawImage({
         draggable: true,
@@ -32,6 +33,7 @@ $(function() {
         var text = $('#inp').val();
         var fontsize = $('#fontsize').val();
         var selectcolor = $('#color-list').val();
+        var fontstyle = $('#fontstyle').val();
         $("#canvas_front").drawText({
             draggable: true,
             fillStyle: selectcolor,
@@ -39,8 +41,13 @@ $(function() {
             x: 120,
             y: 120,
             fontSize: fontsize,
-            fontFamily: "sans-serif",
+            fontFamily: fontstyle,
             text: text,
+            cursors: {
+                mouseover: 'pointer',
+                mousedown: 'move',
+                mouseup: 'pointer',
+            },
             dblclick: function(layer) {
                 $(this).removeLayer(layer);
             }
@@ -90,6 +97,7 @@ $(function() {
             height: 300,
             fromCenter: false,
         });
+
         // カードをダウンロードするまでを行う
         var image_src_front = canvas_front.toDataURL("image/png");
         var image_src_back = canvas_back.toDataURL("image/png");
