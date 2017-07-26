@@ -1,5 +1,6 @@
 $(function() {
-    // canvasを定義
+    // 初期化
+    var inc = 0;
     canvas_front = document.getElementById('canvas_front');
     canvas_back = document.getElementById('canvas_back');
     $('#canvas_front, #canvas_back').attr('width', '500px');
@@ -7,7 +8,7 @@ $(function() {
 
     // 背景色の設定
     $('#canvas_back').drawRect({ fillStyle: '#fff', x: 0, y: 0, width: 2000, height: 2000 });
-    $("#canvas_front").drawImage({ draggable: true, source: '../img/templete01.png', x: 0, y: 0, width: 500, height: 300, fromCenter: false, name: 'background',});
+    $("#canvas_front").drawImage({ draggable: true, source: '../img/templete01.png', x: 0, y: 0, width: 500, height: 300, fromCenter: false, name: 'background', layer: true, });
 
     // ARモデル
     $("#canvas_back").drawImage({
@@ -34,6 +35,8 @@ $(function() {
             fontSize: fontsize,
             fontFamily: fontstyle,
             text: text,
+            name: 'text'+inc,
+            layer: true,
             cursors: {
                 mouseover: 'pointer',
                 mousedown: 'move',
@@ -43,6 +46,7 @@ $(function() {
                 $(this).removeLayer(layer);
             }
         });
+        inc++;
         var text = $('#inp').val(''); // 後片付け
     });
 
@@ -118,14 +122,8 @@ $(function() {
         $('#select img').removeClass('selected');
         $(this).addClass('selected');
         $("#canvas_front").setLayer('background', {
-            draggable: true,
-            name: 'background',
             source: "."+$(this).attr('src'),
-            x: 0, y: 0,
-            width: 500,
-            height: 300,
-            fromCenter: false,
-        }); //$('#canvas_front').click();
+        }).drawLayers();
     });
 
     // ホバーイベント
@@ -136,4 +134,5 @@ $(function() {
     }).mouseleave(function() {
         $('#temp_prev').hide();
     });
+
 }); // $(function()
