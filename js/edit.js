@@ -1,6 +1,5 @@
 $(function() {
     // canvasを定義
-    num = 1;
     canvas_front = document.getElementById('canvas_front');
     canvas_back = document.getElementById('canvas_back');
     $('#canvas_front, #canvas_back').attr('width', '500px');
@@ -145,7 +144,7 @@ $(function() {
             height: 300,
             fromCenter: false,
         });
-        $('#canvas_front').click();
+        //$('#canvas_front').click();
     });
 
     // ホバーイベント
