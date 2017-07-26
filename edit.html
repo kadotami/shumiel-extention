@@ -42,31 +42,6 @@
     <img src="./image/shumiel-logo.png">
 </div>
 <div class="wrapper-left">
-
-    <style>
-        #temp_h1 {
-            margin-bottom: 10px;
-        }
-
-        #select {
-            width: 100%;
-            padding: 35px;
-            margin: 0 auto;
-            box-sizing: border-box;
-            display: flex;
-            flex-wrap:wrap;
-        }
-
-        #select img {
-            cursor: pointer;
-            margin: 0 10px 10px 0;
-        }
-
-        .selected {
-            box-shadow: 0 0 0 3px #29ABE2;
-        }
-
-    </style>
     <h1 id="temp_h1">テンプレートを選択</h1>
     <div id="select">
         <img src="./img/templete01.png" alt="" width="100" height="60" class="selected">
@@ -79,11 +54,11 @@
     <input id="upload_image" type="file" name="datafile" class="file">
     <hr>
     <h1>表示テキストの編集</h1>
-    <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br> <!-- or <br><textarea name="text" id="inp" cols="30" rows="10" placeholder="カードに書き込みたいことばを入力してください。"></textarea> --><br>
+    <span class="item">テキスト：</span><input id="inp" type="text" name="name" value="地獄見澤"><br>
     <span class="item">文字サイズ：</span><input id="fontsize" type="number" name="fontsize" value="23"><br>
+    <span class="item">フォント：</span><select name="fontstyle" id="fontstyle"><option value="sans-serif">sans-serif</option><option value="Verdana">Verdana</option><option value="Arial">Arial</option><option value="Trebuchet MS">Trebuchet MS</option><option value="Ubuntu">Ubuntu</option></select><br>
     <span class="item">色：</span><input id="color-list" type="color" value="#000000" list="colors"><br>
     <button id="add_text">　テキストを追加　</button><br>
-    <!--<button id="add_image"> アップロード </button><br> -->
 </div>
 <div class="wrapper-right">
     <h1>カードデザインのプレビュー</h1>
