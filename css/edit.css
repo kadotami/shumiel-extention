@@ -83,6 +83,15 @@ hr {
   border-radius: 4px;
 }
 
+#fontstyle {
+  width: 110px;
+  font-size: 16px;
+  height: 26px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
 #color-list {
   width: 100px;
   font-size: 16px;
