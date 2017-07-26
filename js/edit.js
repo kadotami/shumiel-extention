@@ -1,6 +1,5 @@
 $(function() {
     // canvasを定義
-    num = 1;
     canvas_front = document.getElementById('canvas_front');
     canvas_back = document.getElementById('canvas_back');
     $('#canvas_front, #canvas_back').attr('width', '500px');
@@ -21,12 +20,12 @@ $(function() {
     });
 
     // 画像ロード
-    var image_array = new Array();
+/*    var image_array = new Array();
     var image_name = ['../img/templete01.png', '../img/templete02.png', '../img/templete03.png', '../img/templete04.png', '../img/templete05.png'];
     for (var i = 0; i < image_name.length; i++) {
         image_array[i] = new Image();
         image_array[i].src = image_name[i];
-    }
+    }*/
 
     // 文字を描画
     $('#add_text').click(function() {
@@ -88,16 +87,6 @@ $(function() {
 
     // canvas画像化
     $('#prev').click(function() {
-        $("#canvas_front").setLayer('background', {
-            draggable: true,
-            name: 'background',
-            source: '.'+$(this).attr('src'),
-            x: 0, y: 0,
-            width: 500,
-            height: 300,
-            fromCenter: false,
-        });
-
         // カードをダウンロードするまでを行う
         var image_src_front = canvas_front.toDataURL("image/png");
         var image_src_back = canvas_back.toDataURL("image/png");
@@ -144,15 +133,13 @@ $(function() {
             width: 500,
             height: 300,
             fromCenter: false,
-        });
-        $('#canvas_front').click();
+        }); //$('#canvas_front').click();
     });
 
     // ホバーイベント
     $('#select img').mouseenter(function() {
         $('#temp_prev').show();
         var src = $(this).attr('src');
-        console.log(src);
         $('#temp_prev').css('background-image', 'url('+src+')');
     }).mouseleave(function() {
         $('#temp_prev').hide();
